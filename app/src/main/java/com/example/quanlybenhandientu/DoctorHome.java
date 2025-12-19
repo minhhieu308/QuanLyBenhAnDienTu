@@ -46,7 +46,7 @@ public class DoctorHome extends AppCompatActivity {
                         Log.d("CHECK", "No such document");
                     }
                 } else {
-                    Log.d("CHECK", "get failed with ", task.getException());
+                    Log.d("CHECK", "get failed with â", task.getException());
                 }
 
             }
