@@ -22,6 +22,7 @@ public class DoctorHome extends AppCompatActivity {
     TextView name, chuyenKhoa;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
+    String ten;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,17 +31,20 @@ public class DoctorHome extends AppCompatActivity {
         setContentView(R.layout.activity_doctorhome);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        name = findViewById(R.id.name);
         getInfo();
     }
     private void getInfo(){
         String email = mAuth.getCurrentUser().getEmail().toString();
         String object;
-        db.collection("users").document(email).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        db.collection("users").document(email).collection("info").document("info").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        ten = document.getString("ten");
+                        name.setText(ten);
                         Log.d("CHECK", "DocumentSnapshot data: " + document.getData());
                     } else {
                         Log.d("CHECK", "No such document");
@@ -51,20 +55,5 @@ public class DoctorHome extends AppCompatActivity {
 
             }
         });
-/*
-        db.collection("users")
-                .document(email).collection().document("info").get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d("CHECK", document.getId() + " => " + document.getData());
-                            }
-                        } else {
-                            Log.w("CHECK", "Error getting documents.", task.getException());
-                        }
-                    }
-                });*/
     }
 }

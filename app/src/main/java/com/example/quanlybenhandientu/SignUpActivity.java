@@ -101,7 +101,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
     private void taoDataBase(String email, int i,Map<String, Object> user){
-        db.collection("users").document(email).collection(luaChon[i]).document("info").set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection("users").document(email).collection("info").document("info").set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.d("CHECK", "Success");
@@ -112,6 +112,7 @@ public class SignUpActivity extends AppCompatActivity {
                 Log.d("CHECK", "Failed");
             }
         });
+
     }
     private void xacThucDangKy(Map<String, Object> user){
         mAuth.createUserWithEmailAndPassword(email, password)
