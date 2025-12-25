@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Login.this, "Success",
                                     Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Login.this, DoctorHome.class));
+                            startActivity(new Intent(Login.this, HomeFragmentsActivity.class));
                             finish();
                         } else {
                             // If sign in fails, display a message to the user.
