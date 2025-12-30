@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -85,7 +86,8 @@ public class DoctorHomeFragment extends Fragment {
         return view;
     }
     private void getInfo(){
-        String email = mAuth.getCurrentUser().getEmail().toString();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String email = user.getEmail();
         db.collection("users").document(email).collection("info").document("info").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
