@@ -80,7 +80,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center">
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/danhSachBenhNhan"
                 android:layout_width="100dp"
@@ -90,6 +89,27 @@
                 app:cardCornerRadius="20dp">
 
                 <TextView
+                    android:id="@+id/datLichKham"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đặt lịch khám"
+                    android:textColor="@color/black"
+                    android:padding="5dp"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:layout_gravity="center"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/danhSachBenhNhan"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                app:cardCornerRadius="20dp"
+                android:layout_marginLeft="20dp">
+
+                <TextView
+                    android:id="@+id/hoSoBenhAn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Hồ sơ bệnh án"
@@ -105,10 +125,11 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_row="0"
-                android:layout_column="1"
+                android:layout_column="2"
                 android:layout_marginLeft="20dp"
                 app:cardCornerRadius="20dp">
                 <TextView
+                    android:id="@+id/lichKham"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Lịch khám"
@@ -122,11 +143,12 @@
                 android:id="@+id/thongKeCaNhan"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:layout_row="0"
-                android:layout_column="2"
-                android:layout_marginLeft="20dp"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_marginTop="20dp"
                 app:cardCornerRadius="20dp">
                 <TextView
+                    android:id="@+id/donThuoc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Đơn thuốc"

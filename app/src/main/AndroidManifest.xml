@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuanLyBenhAnDienTu">
         <activity
+            android:name=".DatLichKhamActivity"
+            android:exported="false" />
+        <activity
             android:name=".FragmentPatientMainActivity"
             android:exported="false" />
         <activity
