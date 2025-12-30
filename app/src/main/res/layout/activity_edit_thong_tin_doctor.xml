@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditThongTinDoctorActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sửa Thông tin"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/black"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="Họ và tên đệm"
+            android:textSize="15sp"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/ho_editProfile"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:background="@drawable/custon_edittext"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Tên"
+            android:textSize="15sp"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/ten_editProfile"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:background="@drawable/custon_edittext"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Số điện thoại"
+            android:textSize="15sp"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/sdt_editProfile"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:background="@drawable/custon_edittext"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Chuyên Khoa"
+            android:textSize="15sp"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/chuyenKhoa_editProfile"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:background="@drawable/custon_edittext"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:text="Địa chỉ"
+            android:textSize="15sp"
+            android:textColor="@color/black" />
+        <EditText
+            android:id="@+id/diaChi_editProfile"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:paddingLeft="10dp"
+            android:background="@drawable/custon_edittext"/>
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:text="Hoàn tất"
+            android:layout_gravity="center"
+            android:background="@drawable/button"
+            android:backgroundTint="#A7DCE9"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

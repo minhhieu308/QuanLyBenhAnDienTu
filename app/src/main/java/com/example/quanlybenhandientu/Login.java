@@ -22,14 +22,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class Login extends AppCompatActivity {
     private Button signup, login;
     private TextView forgotthepassword;
     private EditText emailEditText, passwordEditText;
     private ImageButton showPassword;
-    String email, password;
+    private String email, password;
+    private Long doiTuong;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
     private boolean passwordVisible = false;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login);
 
         mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         showPassword = findViewById(R.id.show_pass);
         emailEditText = findViewById(R.id.login_email);
@@ -93,8 +98,7 @@ public class Login extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Login.this, "Success",
                                     Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(Login.this, HomeFragmentsActivity.class));
-                            finish();
+                            checkTypeOfUser();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("CHECK", "signInWithEmail:failure", task.getException());
@@ -116,5 +120,25 @@ public class Login extends AppCompatActivity {
             passwordVisible = true;
         }
         passwordEditText.setSelection(passwordEditText.getText().length());
+    }
+    private void checkTypeOfUser() {
+        FirebaseUser user = mAuth.getCurrentUser();
+        String email = user.getEmail();
+
+        db.collection("users").document(email).collection("info").document("info").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                DocumentSnapshot doc = task.getResult();
+                doiTuong = doc.getLong("doiTuong");
+                Log.d("CHECK", "checkTypeOfUser: " + doiTuong);
+                if(doiTuong == 0){
+                    startActivity(new Intent(Login.this, FragmentPatientMainActivity.class));
+                    finish();
+                } else{
+                    startActivity(new Intent(Login.this, HomeFragmentsActivity.class));
+                    finish();
+                }
+            }
+        });
     }
 }
